@@ -16,11 +16,11 @@
 
         <div class="navbar-collapse collapse" id="navbars">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home:index' %}">首页 <span class="sr-only">(current)</span></a>
+                <li class="nav-item {% ifequal  '/' request.path %} active {% endifequal %}">
+                    <a class="nav-link" href="{% url 'home:index' %}">首页</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">必应</a>
+                <li class="nav-item {% ifequal  '/bing' request.path|slice:':5' %} active {% endifequal %}">
+                    <a class="nav-link" href="{% url 'bing:index' %}">必应</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">导航</a>

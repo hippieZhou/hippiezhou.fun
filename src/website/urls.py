@@ -19,6 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls', namespace='home')),
+    path('bing/', include('bing.urls', namespace='bing')),
 ]
 
 admin.site.site_title = "Attention Admin"

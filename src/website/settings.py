@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'home'
+    'home.apps.HomeConfig',
+    'bing.apps.BingConfig',
 ]
 
 MIDDLEWARE = [
