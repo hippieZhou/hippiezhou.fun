@@ -10,12 +10,8 @@ from .models import Wallpaper
 
 def index(request):
     first = Wallpaper.objects.first()
-    print(first.datetime)
-    if first is None:
+    if first is None or first.datetime.date() < datetime.today().date():
         spider()
-    else:
-        if first.datetime.today().date() < datetime.today().date():
-            spider()
 
     return render(request, 'bing/index.html', {
         'wallpapers': Wallpaper.objects.all()

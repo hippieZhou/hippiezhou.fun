@@ -5,15 +5,20 @@
     <div class="row">
         {% for wallpaper in wallpapers %}
         <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img lass="bd-placeholder-img card-img-top" width="100%" height="225"
-                    src=" alt="" srcset="">
+            <div class="card mb-4">
+                <div class="view overlay zoom">
+                    <img class="card-img-top" src="https://cn.bing.com{{ wallpaper.url }}" alt="" srcset="">
+                    <a>
+                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                    </a>
+                </div>
                 <div class="card-body">
-                    <p class="card-text text-secondary">{{ wallpaper.copyrightonly }}</p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm bg-primary text-white">View</button>
-                        </div>
+                        <button type="button" class="btn btn-raised btn-primary">
+                            Live Show
+                            <i class="fa fa-image ml-1"></i>
+                        </button>
+
                         <small class="text-muted">{{ wallpaper.datetime|date:'Y-m-d' }}</small>
                     </div>
                 </div>
@@ -22,6 +27,4 @@
         {% endfor %}
     </div>
 </div>
-
-
 {% endblock %}

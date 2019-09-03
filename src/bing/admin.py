@@ -6,6 +6,5 @@ from .models import Wallpaper
 
 @admin.register(Wallpaper)
 class WallpaperAdmin(admin.ModelAdmin):
-    list_display = ('hsh', 'title', 'caption', 'desc',
-                    'copyrightonly', 'datetime',)
+    list_display = ('hsh', 'title', 'copyrightonly', 'datetime',)
     search_fields = ('hsh', 'title', 'copyrightonly',)
