@@ -12,4 +12,4 @@ def index(request):
         visitor = Visitor()
         visitor.ip = ip
     visitor.save()
-    return render(request, 'home/index.html')
+    return render(request, 'home/index.html', {'ip': ip})

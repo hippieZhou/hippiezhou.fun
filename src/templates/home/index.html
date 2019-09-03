@@ -1,9 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">HOME</h1>
-    <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example.
-        It’s built with default Bootstrap components and utilities with little customization.</p>
+<div class="row">
+    <!--Grid column-->
+    <div class="col-md-12">
+        <!-- Card -->
+        <div class="card card-cascade wider reverse my-5">
+            <!-- Card image -->
+            <div class="view view-cascade overlay">
+                <img class="card-img-top" src="{% static 'images/home.jpg' %}" alt="Card image cap">
+                <a href="#!">
+                    <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                </a>
+            </div>
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+
+                <!-- Title -->
+                <h4 class="card-title"><strong>You Are Welcome</strong></h4>
+                <!-- Subtitle -->
+                <h6 class="font-weight-bold indigo-text py-2">{{ ip }}</h6>
+                <!-- Text -->
+                <p class="card-text">I'm so excited that you can find me. okey, there are many things need you find out.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -7,18 +7,19 @@
         <div class="col-md-4">
             <div class="card mb-4">
                 <div class="view overlay zoom">
-                    <img class="card-img-top" src="https://cn.bing.com{{ wallpaper.url }}" alt="" srcset="">
+                    <img class="card-img-top" src="https://cn.bing.com{{ wallpaper.url }}"
+                        alt="{{ wallpaper.copyrightonly }}" srcset="">
                     <a>
                         <div class="mask rgba-white-slight waves-effect waves-light"></div>
                     </a>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn btn-raised btn-primary">
+                        <a class="btn btn-indigo btn-md"
+                            href="#">
                             Live Show
                             <i class="fa fa-image ml-1"></i>
-                        </button>
-
+                        </a>
                         <small class="text-muted">{{ wallpaper.datetime|date:'Y-m-d' }}</small>
                     </div>
                 </div>
