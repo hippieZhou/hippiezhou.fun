@@ -5,14 +5,11 @@ from .models import Visitor
 
 
 def index(request):
-    def get_client_ip(request):
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        if x_forwarded_for:
-            ip = x_forwarded_for.split(',')[0]
-        else:
-            ip = request.META.get('REMOTE_ADDR')
-        return ip
-
-    ip = get_client_ip(request)
-    print(ip)
+    ip = request.META.get('REMOTE_ADDR')
+    a = Visitor.objects.all()
+    visitor = Visitor.objects.get(ip=ip)
+    if visitor is None:
+        visitor = Visitor()
+        visitor.ip = ip
+    visitor.save()
     return render(request, 'home/index.html')

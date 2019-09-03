@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'website.http.RemoteAddrFromForwardedForMiddleware',
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -146,7 +148,6 @@ LOGGING = {
     },
     "loggers": {"django.request": {"handlers": ["mail_admins"], "level": "ERROR", "propagate": True}},
 }
-
 
 
 # Default settings

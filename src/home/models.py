@@ -6,11 +6,12 @@ from datetime import datetime
 
 class Visitor(models.Model):
     ip = models.GenericIPAddressField(
-        unique=True, blank=False, verbose_name="IP地址")
+        unpack_ipv4=True, unique=True, blank=False, verbose_name="IP地址")
     first_time = models.DateTimeField(
-        default=datetime.now, verbose_name="首次访问时间")
+        auto_now_add=True, verbose_name="首次访问时间")
     last_time = models.DateTimeField(
-        default=datetime.now, verbose_name="最后访问时间")
+        auto_now=True, verbose_name="最后访问时间")
+    count = models.IntegerField(default=1, verbose_name='访问次数')
 
     class Meta:
         verbose_name = "访问者"
@@ -18,6 +19,7 @@ class Visitor(models.Model):
 
     def save(self, *args, **kwargs):
         self.last_time = datetime.now
+        self.count += 1
         super(Visitor, self).save(*args, **kwargs)
 
     def __str__(self):
