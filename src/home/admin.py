@@ -6,5 +6,5 @@ from .models import Visitor
 
 @admin.register(Visitor)
 class VisitorAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'first_time', 'last_time',)
+    list_display = ('ip', 'first_time', 'last_time', 'count')
     search_fields = ('ip',)
