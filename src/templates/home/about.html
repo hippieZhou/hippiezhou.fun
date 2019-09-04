@@ -1,5 +1,49 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h1>About</h1>
+<section class="mb-4 py-5">
+    <!-- Card header -->
+    <div class="card-header border-0 font-weight-bold d-flex justify-content-between">
+        <p class="mr-4 mb-0">About Me</p>
+        <ul class="list-unstyled list-inline mb-0">
+            <li class="list-inline-item">
+                <a href="https://www.github.com/hippiezhou" target="_blank" rel="nofollow">
+                    <i class="fab fa-github"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://twitter.com/hippiechou" target="_blank" rel="nofollow">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" target="_blank" rel="nofollow">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="mailto:hippiezhou@outlook.com" target="_blank" rel="nofollow">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body">
+        <div class="media">
+            <img alt="avatar rounded" src="{% static 'images/icons/icon-512x512.png' %}"
+                class="avatar d-flex mr-3 z-depth-1 photo d-flex mr-3 z-depth-1" height="100" width="100">
+            <div class="media-body">
+                <h5 class="mt-0 font-weight-bold">
+                    <a href="#" target="_blank">hippieZhou</a>
+                </h5>
+                Co-Founder at MDBootstrap &amp; BrandFlow.
+                Entrepreneur, web developer, UI/UX designer, marketing analyst. <a
+                    href="https://www.youtube.com/watch?v=6jSD6RsqiLg" rel="nofollow">Dancer</a> and nerd in one.
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
