@@ -11,7 +11,7 @@ from .models import Wallpaper
 class IndexView(generic.ListView):
     template_name = 'bing/index.html'
     context_object_name = 'wallpapers'
-    paginate_by = 6
+    paginate_by = 1
 
     def get_queryset(self):
         first = Wallpaper.objects.first()
