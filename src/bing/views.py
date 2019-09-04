@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from datetime import datetime, timezone
 
@@ -10,6 +11,7 @@ from .models import Wallpaper
 class IndexView(generic.ListView):
     template_name = 'bing/index.html'
     context_object_name = 'wallpapers'
+    paginate_by = 6
 
     def get_queryset(self):
         first = Wallpaper.objects.first()
