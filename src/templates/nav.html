@@ -17,16 +17,16 @@
         <div class="navbar-collapse collapse" id="navbars">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {% ifequal  '/' request.path %} active {% endifequal %}">
-                    <a class="nav-link" href="{% url 'home:index' %}"><i class="fas fa-home mr-1"></i>首页</a>
+                    <a class="nav-link" href="{% url 'home:index' %}"><i class="fas fa-home mr-1"></i>Home</a>
                 </li>
                 <li class="nav-item {% ifequal  '/bing' request.path|slice:':5' %} active {% endifequal %}">
-                    <a class="nav-link" href="{% url 'bing:index' %}"><i class="far fa-images mr-1"></i>壁纸</a>
+                    <a class="nav-link" href="{% url 'bing:index' %}"><i class="far fa-images mr-1"></i>Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-database mr-1"></i>数据</a>
+                    <a class="nav-link" href="#"><i class="fas fa-database mr-1"></i>Data</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-book mr-1"></i>随笔</a>
+                    <a class="nav-link" href="#"><i class="fas fa-book mr-1"></i>Blog</a>
                 </li>
             </ul>
         </div>

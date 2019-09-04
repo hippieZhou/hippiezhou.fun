@@ -27,55 +27,7 @@
         {% endfor %}
     </div>
 
-    {% if is_paginated  %}
-    <div class="row justify-content-center">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination pagination-circle pg-blue">
-                
-                <!--头部-->
-                {% if page_obj.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" aria-label="Previous"
-                        href="{{ request.path }}?page={{ page_obj.previous_page_number }}">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                    <a class="page-link" aria-label="Previous" href="#">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                {% endif %}
+    {% include "pagination.html" %}
 
-                <!--中间页码-->
-                {% for object in page_obj.paginator.page_range %}
-                <li class="page-item {% ifequal forloop.counter page_obj.number %} active {% endifequal %}"><a
-                        class="page-link" href="{{ request.path }}?page={{ forloop.counter }}">{{ forloop.counter }}</a>
-                </li>
-                {% endfor %}
-
-                <!--尾部-->
-                {% if page_obj.has_next %}
-                <li class="page-item {% if not page_obj.has_next %} disabled {% endif %}">
-                    <a class="page-link" aria-label="Next"
-                        href="{{ request.path }}?page={{ page_obj.next_page_number  }}">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                    <a class="page-link" aria-label="Next" href="#">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-                {% endif %}
-        </nav>
-    </div>
-    {% endif %}
 </div>
 {% endblock %}
