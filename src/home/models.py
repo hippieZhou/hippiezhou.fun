@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
 
 # Create your models here.
 
@@ -18,7 +18,7 @@ class Visitor(models.Model):
         verbose_name_plural = verbose_name
 
     def save(self, *args, **kwargs):
-        self.last_time = datetime.now
+        self.last_time = timezone.now
         self.count += 1
         super(Visitor, self).save(*args, **kwargs)
 

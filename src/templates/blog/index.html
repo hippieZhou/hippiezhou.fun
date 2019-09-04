@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="py-5">
+
+    <!--https://mdbootstrap.com/docs/jquery/components/panels/-->
+    <!-- Timeline light-->
+
+    <div class="timeline-main">
+
+        <ul class="timeline-light">
+            <li class="timeline-light-item">
+                <div class="timeline-light-item-tail"></div>
+                <div class="timeline-light-item-head"></div>
+                <div class="timeline-light-item-content">
+                    Text 1
+                </div>
+            </li>
+            <li class="timeline-light-item timeline-light-item-dashed timeline-light-item-light">
+                <div class="timeline-light-item-tail"></div>
+                <div class="timeline-light-item-head"></div>
+                <div class="timeline-light-item-content">
+                    Text 2
+                </div>
+            </li>
+            <li class="timeline-light-item timeline-light-item-danger">
+                <div class="timeline-light-item-tail"></div>
+                <div class="timeline-light-item-head"></div>
+                <div class="timeline-light-item-content">
+                    Text 3
+                </div>
+            </li>
+            <li class="timeline-light-item timeline-light-item-secondary timeline-light-item-loading">
+                <div class="timeline-light-item-tail"></div>
+                <div class="timeline-light-item-head"></div>
+                <div class="timeline-light-item-content">
+                    Text 4
+                </div>
+            </li>
+            <li class="timeline-light-item timeline-light-item-icon">
+                <div class="timeline-light-item-tail"></div>
+                <div class="timeline-light-item-head">
+                    <i class="far fa-smile-beam fa-spin"></i>
+                </div>
+                <div class="timeline-light-item-content">
+                    Text 5
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <!-- Timeline light-->
+
+
+    {% include "pagination.html" %}
+</div>
+{% endblock %}
