@@ -17,7 +17,6 @@ COOKIES = "SRCHD=AF=NOFORM; SRCHUID=V=2&GUID=550985DA3A594E778D50B0672C8B7B3C&dm
 
 
 def spider():
-    print('开始请求。。。')
     headers = {
         "Host": "cn.bing.com",
         "User-Agent": USER_AGENG,

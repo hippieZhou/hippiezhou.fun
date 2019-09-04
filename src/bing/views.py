@@ -1,18 +1,22 @@
 from django.shortcuts import render
-from django.utils import timezone
+from django.views import generic
 
-from datetime import datetime
+from datetime import datetime, timezone
 
-from .spider import spider
 from .models import Wallpaper
 # Create your views here.
 
 
-def index(request):
-    first = Wallpaper.objects.first()
-    if first is None or first.datetime.date() < datetime.today().date():
-        spider()
+class IndexView(generic.ListView):
+    template_name = 'bing/index.html'
+    context_object_name = 'wallpapers'
 
-    return render(request, 'bing/index.html', {
-        'wallpapers': Wallpaper.objects.all()
-    })
+    def get_queryset(self):
+        first = Wallpaper.objects.first()
+        db_time = first.datetime.timestamp()
+        local_time = datetime.now(timezone.utc).timestamp()
+        if first is None or db_time <= local_time:
+            print(db_time, local_time)
+            from .spider import spider
+            spider()
+        return Wallpaper.objects.all()
