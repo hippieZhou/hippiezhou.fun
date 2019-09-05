@@ -8,5 +8,5 @@ app_name = 'bing'
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('<hsh>/detail/', views.detail, name='detail'),
+    path('detail/<hsh>/', views.detail, name='detail'),
 ]

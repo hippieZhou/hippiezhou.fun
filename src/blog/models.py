@@ -11,7 +11,7 @@ class Post(models.Model):
     author = models.ForeignKey(User,
                                verbose_name='作者', on_delete=models.CASCADE, related_name="posts")
     title = models.CharField(verbose_name='标题', max_length=200)
-    slug = models.SlugField(verbose_name='概述', max_length=500)
+    slug = models.SlugField(verbose_name='格式化', max_length=500, editable=False)
     body = models.TextField(verbose_name='正文')
     created = models.DateTimeField(verbose_name='创建时间', default=timezone.now)
     updated = models.DateTimeField(verbose_name='更新时间', auto_now=True)
@@ -27,10 +27,10 @@ class Post(models.Model):
         super(Post, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('blog:blog_detail', args=[self.id, self.slug])
+        return reverse('blog:detail', args=[self.id, self.slug])
 
-    # def get_url_path(self):
-    #     return reverse('blog:list_blog_detail', args=[self.id, self.slug])
+    def get_url_path(self):
+        return reverse('blog:detail', args=[self.id, self.slug])
 
     def __str__(self):
         return self.title

@@ -7,3 +7,4 @@ from .models import Post
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'created', 'updated',)
     search_fields = ('title', 'body',)
+    date_hierarchy = 'created'

@@ -6,5 +6,6 @@ from . import views
 app_name = 'blog'
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='blog/index.html'), name='index'),
+    path('', views.IndexView.as_view(), name='index'),
+    path('detail/<int:id>/<str:slug>/', views.detail, name='detail'),
 ]
