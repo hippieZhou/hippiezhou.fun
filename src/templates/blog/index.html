@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% load bing_tags %}
-{% load static %}
+{% load staticfiles %}
+{% load blog_tags %}
 
 {% block content %}
 <div class="py-5">
@@ -21,10 +21,10 @@
 
                 <h4 class="h4 mb-4">{{ post.title }}</h4>
 
-                <p class="font-weight-normal"> {{ post.body|truncatechars:100 }}&nbsp;...</p>
+                <p class="font-weight-normal"> {{ post.body|safe|truncatechars:70 }}&nbsp;...</p>
                 <p class="font-weight-normal">by
                     <a><strong>{{ post.author.username }}</strong></a>,&nbsp;{{ post.created|date:'Y-m-d' }}</p>
-                <a  href="{{ post.get_url_path }}" class="btn btn-indigo btn-md">Read more</a>
+                <a href="{{ post.get_url_path }}" class="btn btn-indigo btn-md">Read more</a>
             </div>
         </div>
     </div>

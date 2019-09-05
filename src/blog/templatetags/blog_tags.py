@@ -1,11 +1,13 @@
-import markdown
-
 from django import template
+from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
+
+import markdown as md
 
 register = template.Library()
 
 
-@register.filter(name='markdown')
-def markdown_filter(text):
-    return mark_safe(markdown.markdown(text))
+@register.filter()
+@stringfilter
+def markdown(value):
+    return mark_safe(md.markdown(value, extensions=['markdown.extensions.fenced_code']))

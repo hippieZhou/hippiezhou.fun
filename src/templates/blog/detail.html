@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
+{% load blog_tags %}
 
 {% block content %}
-<div class="jumbotron py-5">
-    <h2 class="h2 mb-2 text-center">{{ post.title }}</h2>
-    <div class="text-center">
-        {{ post.created|date:'Y-m-d' }}
-        &nbsp;<i class="fas fa-caret-up fa-sm"></i>&nbsp;
-        {{ post.author.username }}
+<div class=" py-5">
+    <div class="jumbotron">
+        <h2 class="h2 mb-2 text-center">{{ post.title }}</h2>
+        <div class="text-center">
+            {{ post.created|date:'Y-m-d' }}
+            &nbsp;<i class="fas fa-caret-up fa-sm"></i>&nbsp;
+            {{ post.author.username }}
+        </div>
+        <p class="lead py-2">{{ post.body|markdown }}</p>
+        <hr class="my-4">
     </div>
-    <p class="lead py-2">{{ post.body|linebreaks }}</p>
-    <hr class="my-4">
 </div>
+
 {% endblock %}
