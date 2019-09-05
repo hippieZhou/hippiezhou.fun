@@ -9,7 +9,7 @@ from slugify import slugify
 
 class Post(models.Model):
     author = models.ForeignKey(User,
-                               verbose_name='作者', on_delete=models.CASCADE, related_name="article")
+                               verbose_name='作者', on_delete=models.CASCADE, related_name="posts")
     title = models.CharField(verbose_name='标题', max_length=200)
     slug = models.SlugField(verbose_name='概述', max_length=500)
     body = models.TextField(verbose_name='正文')
