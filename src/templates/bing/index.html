@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bing_tags %}
 
 {% block content %}
 <div class="py-5">
@@ -7,8 +8,8 @@
         <div class="col-md-4">
             <div class="card mb-4">
                 <div class="view overlay zoom">
-                    <img class="card-img-top" src="https://cn.bing.com{{ wallpaper.url }}"
-                        alt="{{ wallpaper.copyrightonly }}" srcset="">
+                    <img class="card-img-top" src="{{ wallpaper.url|bingimage }}" alt="{{ wallpaper.copyrightonly }}"
+                        srcset="">
                     <a>
                         <div class="mask rgba-white-slight waves-effect waves-light"></div>
                     </a>
