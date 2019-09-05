@@ -6,7 +6,6 @@ from .models import Visitor
 
 def index(request):
     ip = request.META.get('REMOTE_ADDR')
-    a = Visitor.objects.all()
     visitor = Visitor.objects.get(ip=ip)
     if visitor is None:
         visitor = Visitor()
