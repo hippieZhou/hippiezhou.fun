@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'home.apps.HomeConfig',
     'bing.apps.BingConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [

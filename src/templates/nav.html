@@ -25,8 +25,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-database mr-1"></i>Data</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-book mr-1"></i>Blog</a>
+                <li class="nav-item {% ifequal  '/blog' request.path|slice:':5' %} active {% endifequal %}">
+                    <a class="nav-link" href="{% url 'blog:index' %}"><i class="fas fa-book mr-1"></i>Blog</a>
                 </li>
             </ul>
         </div>

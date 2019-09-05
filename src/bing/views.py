@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -22,3 +22,8 @@ class IndexView(generic.ListView):
             from .spider import spider
             spider()
         return Wallpaper.objects.all()
+
+
+def detail(request, hsh):
+    wallpaper = get_object_or_404(Wallpaper, hsh=hsh)
+    return render(request, 'bing/detail.html', {'wallpaper': wallpaper})
