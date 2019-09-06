@@ -24,9 +24,11 @@ SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY', 'p*!)n+sd2(@bi_6jcu51_3m62aj4jq41hyp*fs8atbkp2rh)lq')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', True)
+DEBUG = os.environ.get('DJANGO_DEBUG', False)
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".hippiezhou.fun"]
+TEMPLATE_DEBUG = os.environ.get('DJANGO_TEMPLATE_DEBUG', False)
+
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
