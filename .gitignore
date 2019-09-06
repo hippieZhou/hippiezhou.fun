@@ -12,5 +12,8 @@ __pycache__/
 # migrations
 migrations/
 
+# static files
+staticfiles/
+
 # logs
 *.log
