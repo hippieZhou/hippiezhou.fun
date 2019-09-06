@@ -40,7 +40,7 @@ worker_class = 'sync'
 workers = multiprocessing.cpu_count()
 
 # 指定每个工作进程开启的线程数
-threads = multiprocessing.cpu_count() * 4
+threads = multiprocessing.cpu_count() * 2
 
 # 日志级别，这个日志级别指的是错误日志的级别(debug、info、warning、error、critical)，而访问日志的级别无法设置
 loglevel = 'info'
