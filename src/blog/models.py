@@ -15,6 +15,7 @@ class Post(models.Model):
     body = models.TextField(verbose_name='正文')
     created = models.DateTimeField(verbose_name='创建时间', default=timezone.now)
     updated = models.DateTimeField(verbose_name='更新时间', auto_now=True)
+    published = models.BooleanField(verbose_name='是否发布', default=False)
 
     class Meta:
         verbose_name = "随笔文章"
