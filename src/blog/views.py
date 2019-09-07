@@ -12,8 +12,8 @@ class IndexView(generic.ListView):
     context_object_name = 'posts'
     paginate_by = 6
 
-    # def get_queryset(self):
-    #     return Post.objects.all()
+    def get_queryset(self):
+        return Post.objects.filter(published=True).order_by('-created')
 
 
 def detail(request, id, slug):
