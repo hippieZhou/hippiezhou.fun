@@ -15,13 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls', namespace='home')),
     path('bing/', include('bing.urls', namespace='bing')),
     path('blog/', include('blog.urls', namespace='blog')),
+
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
+
+handler404 = 'website.error_views.handler404'
+handler500 = 'website.error_views.handler500'
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_title = "Attention Admin"
 admin.site.site_header = "Attention Admin"

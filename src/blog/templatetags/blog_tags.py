@@ -10,4 +10,8 @@ register = template.Library()
 @register.filter()
 @stringfilter
 def markdown(value):
-    return mark_safe(md.markdown(value, extensions=['markdown.extensions.fenced_code']))
+    return mark_safe(md.markdown(value,
+                                 extensions=[
+                                     'markdown.extensions.extra',
+                                     'markdown.extensions.fenced_code',
+                                 ]))
