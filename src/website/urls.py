@@ -27,6 +27,9 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
+handler404 = 'website.error_views.handler404'
+handler500 = 'website.error_views.handler500'
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_title = "Attention Admin"
