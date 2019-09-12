@@ -38,13 +38,14 @@ def spider():
         bings = data.get('images', None)
         for item in bings:
             try:
-                hsh = item.get('hsh', None)
+                title = item.get('title', None)
 
-                old = Wallpaper.objects.filter(hsh=hsh).first()
+                old = Wallpaper.objects.filter(title=title).first()
                 if old is not None:
                     continue
 
-                title = item.get('title', None)
+                hsh = item.get('hsh', None)
+
                 caption = item.get('caption', None)
                 desc = item.get('desc', None)
 
