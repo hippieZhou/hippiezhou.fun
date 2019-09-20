@@ -18,7 +18,6 @@ class Visitor(models.Model):
         verbose_name_plural = verbose_name
 
     def save(self, *args, **kwargs):
-        self.last_time = timezone.now
         self.count += 1
         super(Visitor, self).save(*args, **kwargs)
 

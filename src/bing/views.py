@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
-from datetime import datetime, timezone
+from django.utils import timezone
+from datetime import datetime
 
 from .models import Wallpaper
 # Create your views here.
@@ -15,10 +15,9 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         first = Wallpaper.objects.first()
-        db_time = first.datetime.timestamp()
-        local_time = datetime.now(timezone.utc).timestamp()
-        if first is None or db_time <= local_time:
-            print(db_time, local_time)
+        timespan = timezone.now() - first.datetime
+        if first is None or timespan.days > 1:
+            print('sipder is running')
             from .spider import spider
             spider()
         return Wallpaper.objects.all()
