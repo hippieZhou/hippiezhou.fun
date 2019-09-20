@@ -6,11 +6,12 @@
     <div class="jumbotron">
         <h2 class="h2 mb-2 text-center">{{ post.title }}</h2>
         <div class="text-center">
-            {{ post.created|date:'Y-m-d' }}
-            &nbsp;<i class="fas fa-caret-up fa-sm"></i>&nbsp;
-            {{ post.author.username }}
+            <p class="text-muted"><i class="fas fa-user-edit">&nbsp;{{ post.author }}</i></p>
+            <i class="far fa-calendar-alt">&nbsp;{{ post.publish }}</i>
+            <br />
         </div>
         <p class="lead py-2">{{ post.body|markdown }}</p>
+
         <hr class="my-4">
         <div class="text-center">
             <a href="https://github.com/996icu/996.ICU/blob/master/LICENSE"><img

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'ckeditor',
     'ckeditor_uploader',
+    'taggit',
 
     'home.apps.HomeConfig',
     'bing.apps.BingConfig',
