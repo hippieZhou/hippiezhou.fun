@@ -17,8 +17,9 @@ class PublishedManager(models.Manager):
 class Post(models.Model):
     author = models.ForeignKey(User,
                                verbose_name='作者', on_delete=models.CASCADE, related_name="posts")
-    title = models.CharField(verbose_name='标题', max_length=100)
-    slug = models.SlugField(verbose_name='格式化', max_length=200, editable=False)
+    title = models.CharField(verbose_name='标题', max_length=250)
+    slug = models.SlugField(
+        verbose_name='短标题', max_length=250, editable=False, unique_for_date='publish')
     body = RichTextUploadingField(verbose_name='正文')
 
     publish = models.DateTimeField(verbose_name='发布时间', default=timezone.now)
@@ -35,7 +36,7 @@ class Post(models.Model):
     class Meta:
         verbose_name = "随笔文章"
         verbose_name_plural = verbose_name
-        ordering = ("-updated",)
+        ordering = ('-publish',)
         index_together = (('id', 'slug'),)
 
     def save(self, *args, **kwargs):

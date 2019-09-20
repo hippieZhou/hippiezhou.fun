@@ -2,10 +2,10 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="mb-4 py-5">
+<div class="py-5">
     <!-- Card header -->
     <div class="card-header border-0 font-weight-bold d-flex justify-content-between">
-        <p class="mr-4 mb-0">About Me</p>
+        <p class="mr-4 mb-0">ABOUT ME</p>
         <ul class="list-unstyled list-inline mb-0">
             <li class="list-inline-item">
                 <a href="https://www.github.com/hippiezhou" target="_blank" rel="nofollow">
@@ -31,11 +31,11 @@
     </div>
 
     <!--Card content-->
-    <div class="card-body">
+    <div class="card-body py-5">
         <div class="media">
-            <img alt="avatar rounded" src="{% static 'images/icons/icon-512x512.png' %}"
-                class="avatar d-flex mr-3 z-depth-1 photo d-flex mr-3 z-depth-1" height="100" width="100">
-            <div class="media-body">
+            <img alt="avatar" src="{% static 'images/icons/icon-512x512.png' %}"
+                class="d-flex rounded-circle avatar z-depth-1-half mb-3 mx-auto" height="100" width="100">
+            <div class="media-body text-center text-md-left ml-md-3 ml-0">
                 <h5 class="mt-0 font-weight-bold">
                     <a href="#" target="_blank">hippieZhou</a>
                 </h5>
