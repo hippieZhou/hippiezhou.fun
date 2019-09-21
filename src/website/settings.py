@@ -82,6 +82,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
+# 创建自定义验证后端
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+#     'website.authentication.EmailAuthBackend',
+# ]
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -91,19 +96,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'hippiezhou_fun',
+    #     'USER': 'root',
+    #     'PASSWORD': 'root',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
+    # }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'hippiezhou_fun',
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'HOST': '192.168.0.58',
-#         # 'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#     }
-# }
 
 
 # Password validation
@@ -146,7 +147,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
