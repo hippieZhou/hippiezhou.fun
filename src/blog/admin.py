@@ -21,3 +21,7 @@ class PostAdmin(admin.ModelAdmin):
             "fields": ('publish', 'status',)
         }),
     )
+
+    def get_queryset(self, request):
+        qs = super(PostAdmin, self).get_queryset(request)
+        return qs if request.user.is_superuser else qs.filter(author=request.user)
