@@ -19,11 +19,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include('home.urls', namespace='home')),
     path('bing/', include('bing.urls', namespace='bing')),
     path('blog/', include('blog.urls', namespace='blog')),
 
+    path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

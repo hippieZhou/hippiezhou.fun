@@ -33,13 +33,6 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-
     'bootstrap4',
     'ckeditor',
     'ckeditor_uploader',
@@ -48,6 +41,13 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'bing.apps.BingConfig',
     'blog.apps.BlogConfig',
+
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
