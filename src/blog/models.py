@@ -18,10 +18,11 @@ class Post(models.Model):
     author = models.ForeignKey(User,
                                verbose_name='作者',
                                on_delete=models.CASCADE,
-                               related_name="posts")
+                               related_name="posts",
+                               default=User)
     title = models.CharField(verbose_name='标题',
                              max_length=250)
-    slug = models.SlugField(verbose_name='短标题',
+    slug = models.SlugField(verbose_name='别名',
                             max_length=250,
                             editable=False,
                             unique_for_date='publish')
