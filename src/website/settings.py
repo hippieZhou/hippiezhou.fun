@@ -171,57 +171,34 @@ CKEDITOR_ALLOW_NONIMAGE_FILES = True
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'root': {
-        'level': 'INFO',
-        'handlers': ['console', 'log_file'],
-    },
     'formatters': {
-        'verbose': {
-            'format': '[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d %(module)s] %(message)s',
-        }
-    },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
-        },
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
+        'default': {
+            'format': '%(levelname)s %(asctime)s %(module)s:'
+                      '%(funcName)s:%(lineno)d %(message)s'
         },
     },
     'handlers': {
-        'log_file': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'default',
+        },
+        'file': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': 'djangoblog.log',
-            'maxBytes': 16777216,  # 16 MB
-            'formatter': 'verbose'
+            'filename': 'typeidea.log',
+            'formatter': 'default',
+            'maxBytes': 1024 * 1024,  # 1M
+            'backupCount': 5,
         },
-        'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
-        },
-        'null': {
-            'class': 'logging.NullHandler',
-        },
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
+
     },
     'loggers': {
-        'djangoblog': {
-            'handlers': ['log_file', 'console'],
+        '': {
+            'handlers': ['console'],
             'level': 'INFO',
             'propagate': True,
         },
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': False,
-        }
     }
 }
 
