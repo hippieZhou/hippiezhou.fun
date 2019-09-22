@@ -186,7 +186,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': 'typeidea.log',
+            'filename': 'website.log',
             'formatter': 'default',
             'maxBytes': 1024 * 1024,  # 1M
             'backupCount': 5,
