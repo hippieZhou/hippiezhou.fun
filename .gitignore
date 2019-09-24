@@ -10,7 +10,7 @@ logs/
 __pycache__/
 
 # migrations
-migrations/
+# migrations/
 
 # static files
 staticfiles/
