@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'taggit',
+    'jet',
 
     'home.apps.HomeConfig',
     'bing.apps.BingConfig',

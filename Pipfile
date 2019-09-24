@@ -16,6 +16,7 @@ markdown = "*"
 pillow = "*"
 python-slugify = "*"
 requests = "*"
+django-jet = "*"
 
 [requires]
 python_version = "3.6"

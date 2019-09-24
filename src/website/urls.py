@@ -23,8 +23,10 @@ urlpatterns = [
     path('bing/', include('bing.urls', namespace='bing')),
     path('blog/', include('blog.urls', namespace='blog')),
 
-    path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('jet/', include('jet.urls', namespace='jet')),
+
+    path('admin/', admin.site.urls),
 ]
 
 handler404 = 'website.error_views.handler404'
