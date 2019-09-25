@@ -38,8 +38,8 @@ class Post(models.Model):
     status = models.BooleanField(verbose_name='是否发布',
                                  default=False)
 
-    pv = models.PositiveIntegerField(default=1)
-    uv = models.PositiveIntegerField(default=1)
+    pv = models.PositiveIntegerField(default=1, editable=False)
+    uv = models.PositiveIntegerField(default=1, editable=False)
 
     tags = TaggableManager()
     objects = models.Manager()
