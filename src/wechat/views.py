@@ -4,6 +4,7 @@ from django.views.decorators.http import require_POST
 from pywxclient.core import Session, SyncClient
 from common.decorators import ajax_required
 # Create your views here.
+# https://github.com/justdoit0823/pywxclient
 
 client = None
 
@@ -20,9 +21,11 @@ def index(request):
 @require_POST
 def login(request):
     doamin = request.POST.get('domain')
-    print(client.authorize())
-    if doamin == 'hippiezhou.fun' and not client:
+    ok = client.login()
+    print(ok)
+    if doamin == 'hippiezhou.fun':
         return JsonResponse({'status': '1'})
+
     return JsonResponse({'status': '0'})
 
 
