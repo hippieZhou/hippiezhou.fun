@@ -20,12 +20,13 @@ def index(request):
 @ajax_required
 @require_POST
 def login(request):
-    doamin = request.POST.get('domain')
-    ok = client.login()
-    print(ok)
-    if doamin == 'hippiezhou.fun':
-        return JsonResponse({'status': '1'})
-
+    # doamin = request.POST.get('domain')
+    # ok = client.authorize()
+    # if ok:
+    #     result = client.login()
+    #     print(result)
+    # if doamin == 'hippiezhou.fun':
+    #     return JsonResponse({'status': '1'})
     return JsonResponse({'status': '0'})
 
 
