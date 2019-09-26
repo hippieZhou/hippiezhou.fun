@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'bing.apps.BingConfig',
     'blog.apps.BlogConfig',
+    'wechat.apps.WechatConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',

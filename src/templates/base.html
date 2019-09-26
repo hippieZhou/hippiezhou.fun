@@ -1,35 +1,36 @@
 {% extends 'bootstrap4/bootstrap4.html' %}
 
-{% load bootstrap4 %}
 {% load staticfiles %}
+
+{% load bootstrap4 %}
 
 {% bootstrap_javascript jquery='full' %}
 
 {% block bootstrap4_extra_head %}
-    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/icon/icon-72x72.png' %}">
-    <link rel="apple-touch-icon" sizes="96x96" href="{% static 'images/icon/icon-96x96.png' %}">
-    <link rel="apple-touch-icon" sizes="128x128" href="{% static 'images/icon/icon-128x128.png' %}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'images/icon/icon-144x144.png' %}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'images/icon/icon-152x152.png' %}">
-    <link rel="apple-touch-icon" sizes="192x192" href="{% static 'images/icon/icon-192x192.png' %}">
-    <link rel="apple-touch-icon" sizes="384x384" href="{% static 'images/icon/icon-384x384.png' %}">
-    <link rel="apple-touch-icon" sizes="512x512" href="{% static 'images/icon/icon-512x512.png' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
-    <link rel="manifest" href="{% static 'manifest.json' %}">
+<link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/icon/icon-72x72.png' %}">
+<link rel="apple-touch-icon" sizes="96x96" href="{% static 'images/icon/icon-96x96.png' %}">
+<link rel="apple-touch-icon" sizes="128x128" href="{% static 'images/icon/icon-128x128.png' %}">
+<link rel="apple-touch-icon" sizes="144x144" href="{% static 'images/icon/icon-144x144.png' %}">
+<link rel="apple-touch-icon" sizes="152x152" href="{% static 'images/icon/icon-152x152.png' %}">
+<link rel="apple-touch-icon" sizes="192x192" href="{% static 'images/icon/icon-192x192.png' %}">
+<link rel="apple-touch-icon" sizes="384x384" href="{% static 'images/icon/icon-384x384.png' %}">
+<link rel="apple-touch-icon" sizes="512x512" href="{% static 'images/icon/icon-512x512.png' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+<link rel="manifest" href="{% static 'manifest.json' %}">
 
-    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.8.1/css/all.css" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" />
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.8.1/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" />
 
-    <meta property="og:title" content="hippieZhou">
-    <meta property="og:description" content="Tks for your attention.">
-    <meta name="og:url" content="https://hippiezhou.fun">
-    <meta name="robots" content="index,follow">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
+<meta property="og:title" content="hippieZhou">
+<meta property="og:description" content="Tks for your attention.">
+<meta name="og:url" content="https://hippiezhou.fun">
+<meta name="robots" content="index,follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="transparent">
 {% endblock %}
 
 {% block bootstrap4_title %}
-    {% block title %}hippieZhou{% endblock %}
+{% block title %}hippieZhou{% endblock %}
 {% endblock %}
 
 
@@ -43,7 +44,7 @@
 <main>
     <div class="container">
         {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
-        
+
         {% block content %}{% endblock %}
     </div>
     {% include 'back_to_top.html' %}
@@ -58,7 +59,23 @@
 
 {% block bootstrap4_extra_script %}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/js/mdb.min.js"></script>
-{% block extra_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script>
+    function csrfSafeMethon(method) {
+        // 如下的HTTP请求不需要设置CRSF信息
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
 
-{% endblock %}
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethon(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", '{{ csrf_token }}');
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        {% block domready %}{% endblock %}
+    });
+</script>
 {% endblock %}

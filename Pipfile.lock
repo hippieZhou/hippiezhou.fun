@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0d0f2a1f4a4a033595259520ca5a6caf58de14f8c438ab79323f169adb444c3d"
+            "sha256": "095cb3668b5df4f2920c55095cd99dc1081fc87550478ac0f5bdf9724d04ac73"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -166,6 +166,13 @@
             ],
             "version": "==2019.2"
         },
+        "pywxclient": {
+            "hashes": [
+                "sha256:e7cc80377e4ecb8da46118cc25ba80e39771ded27d9168fc937c61849ba168f3"
+            ],
+            "index": "pypi",
+            "version": "==0.1.2"
+        },
         "requests": {
             "hashes": [
                 "sha256:11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4",
@@ -197,10 +204,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:2f3eadfea5d92bc7899e75b5968410b749a054b492d5a6379c1344a1481bc2cb",
-                "sha256:9c6c593cb28f52075016307fc26b0a0f8e82bc7d1ff19aaaa959b91710a56c47"
+                "sha256:3de946ffbed6e6746608990594d08faac602528ac7015ac28d33cee6a45b7398",
+                "sha256:9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
             ],
-            "version": "==1.25.5"
+            "version": "==1.25.6"
         }
     },
     "develop": {}

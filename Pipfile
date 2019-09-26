@@ -17,6 +17,7 @@ pillow = "*"
 python-slugify = "*"
 requests = "*"
 django-jet = "*"
+pywxclient = "*"
 
 [requires]
 python_version = "3.6"

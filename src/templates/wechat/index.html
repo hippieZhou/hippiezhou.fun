@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<div class="py-5">
+    <div class="text-center">
+        <img src="{{ url }}" />
+        <div class="text-center">
+            <a id="login" class="btn btn-primary">登录</a>
+        </div>
+    </div>
+</div>
+{% endblock  %}
+
+{% block domready %}
+    $('#login').click(function(e){
+        e.preventDefault();
+        console.log("信誉保证，不会收集您的任何个人信息，所有数据均来源于微信官方。");
+        $.post('{% url "wechat:login" %}',{
+            domain : 'hippiezhou.fun',
+        },function(data){
+            console.log(data)
+            if(data['status'] == '1'){
+                console.log("登录成功");
+            }else{
+                console.log("登录失败")
+            }
+        })
+    });
+{% endblock %}
