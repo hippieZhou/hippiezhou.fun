@@ -30,7 +30,7 @@
             <ul class="navbar-nav nav-flex-icons">
                 {% if request.user.is_authenticated  %}
                 <li class="nav-item">
-                    <a class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
+                    <a href="{% url 'account:logout' %}" class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
                 </li>
                 {% else %}
                 <li class="nav-item">
