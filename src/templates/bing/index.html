@@ -2,33 +2,31 @@
 {% load bing_tags %}
 
 {% block content %}
-<div class="py-5">
-    <div class="row">
-        {% for wallpaper in wallpapers %}
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <div class="view overlay zoom">
-                    <img class="card-img-top" src="{{ wallpaper.url|bingimage }}" alt="{{ wallpaper.copyrightonly }}"
-                        srcset="">
-                    <a>
-                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+<div class="row">
+    {% for wallpaper in wallpapers %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="view overlay zoom">
+                <img class="card-img-top" src="{{ wallpaper.url|bingimage }}" alt="{{ wallpaper.copyrightonly }}"
+                    srcset="">
+                <a>
+                    <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a class="btn btn-indigo btn-md" href="{% url 'bing:detail' wallpaper.hsh %}">
+                        Live Show
+                        <i class="fa fa-image ml-1"></i>
                     </a>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a class="btn btn-indigo btn-md" href="{% url 'bing:detail' wallpaper.hsh %}">
-                            Live Show
-                            <i class="fa fa-image ml-1"></i>
-                        </a>
-                        <small class="text-muted">{{ wallpaper.datetime|date:'Y-m-d' }}</small>
-                    </div>
+                    <small class="text-muted">{{ wallpaper.datetime|date:'Y-m-d' }}</small>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
-
-    {% include "pagination.html" %}
-
+    {% endfor %}
 </div>
+
+{% include "pagination.html" %}
+
 {% endblock %}

@@ -2,24 +2,22 @@
 {% load bing_tags %}
 
 {% block content %}
-<div class="row py-5">
-    <div class="jumbotron text-center">
-        <h4 class="card-title font-bold pb-2"><strong>{{ wallpaper.title }}</strong></h4>
-        <div class="view overlay my-4">
-            <img id="img" src="{{ wallpaper.url|bingimage }}" class="img-fluid" alt="">
-            <a>
-                <div class="mask rgba-white-slight"></div>
-            </a>
-        </div>
-        <h5 class="indigo-text font-bold mb-4">{{ wallpaper.copyrightonly }}</h5>
-        <figcaption class="figure-caption text-center mb-4">{{ wallpaper.datetime|date:'Y-m-d' }}</figcaption>
-        <p class="card-text text-left">
-            @{{ wallpaper.desc }}
-        </p>
-        <a class="btn btn-default btn-sm" onclick="download_image(this);">
-            <i class="fa fa-download pr-2" aria-hidden="true"></i> Download
+<div class="jumbotron text-center">
+    <h4 class="card-title font-bold pb-2"><strong>{{ wallpaper.title }}</strong></h4>
+    <div class="view overlay my-4">
+        <img id="img" src="{{ wallpaper.url|bingimage }}" class="img-fluid" alt="">
+        <a>
+            <div class="mask rgba-white-slight"></div>
         </a>
     </div>
+    <h5 class="indigo-text font-bold mb-4">{{ wallpaper.copyrightonly }}</h5>
+    <figcaption class="figure-caption text-center mb-4">{{ wallpaper.datetime|date:'Y-m-d' }}</figcaption>
+    <p class="card-text text-left">
+        @{{ wallpaper.desc }}
+    </p>
+    <a class="btn btn-default btn-sm" onclick="download_image(this);">
+        <i class="fa fa-download pr-2" aria-hidden="true"></i> Download
+    </a>
 </div>
 {% endblock %}
 

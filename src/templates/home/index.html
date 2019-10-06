@@ -2,30 +2,25 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="row">
-    <!--Grid column-->
-    <div class="col-md-12">
-        <!-- Card -->
-        <div class="card card-cascade wider reverse my-5">
-            <!-- Card image -->
-            <div class="view view-cascade overlay">
-                <img class="card-img-top" src="{% static 'images/wallpaper.jpg' %}" alt="Card image cap">
-                <a href="#!">
-                    <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                </a>
-            </div>
-            <!-- Card content -->
-            <div class="card-body card-body-cascade text-center">
+<div class="card card-cascade wider reverse">
+    <!-- Card image -->
+    <div class="view view-cascade overlay">
+        <img class="card-img-top" src="{% static 'images/wallpaper.jpg' %}" alt="Card image cap">
+        <a href="#!">
+            <div class="mask rgba-white-slight waves-effect waves-light"></div>
+        </a>
+    </div>
+    <!-- Card content -->
+    <div class="card-body card-body-cascade text-center">
 
-                <!-- Title -->
-                <h4 class="card-title"><strong>You Are Welcome</strong></h4>
-                <!-- Subtitle -->
-                <h6 class="font-weight-bold indigo-text py-2">{{ ip }}</h6>
-                <!-- Text -->
-                <p class="card-text">I'm so excited that you can find me. okey, there are many things need you to find out if you like.
-                </p>
-            </div>
-        </div>
+        <!-- Title -->
+        <h4 class="card-title"><strong>You Are Welcome</strong></h4>
+        <!-- Subtitle -->
+        <h6 class="font-weight-bold indigo-text py-2">{{ ip }}</h6>
+        <!-- Text -->
+        <p class="card-text">I'm so excited that you can find me. okey, there are many things need you to find out if
+            you like.
+        </p>
     </div>
 </div>
 {% endblock %}
