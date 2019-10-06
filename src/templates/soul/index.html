@@ -14,7 +14,6 @@
         e.preventDefault();
         console.log("毒鸡汤，原始数据来自于：https://github.com/egotong/nows");
         $.get('{% url "soul:random" %}',function(data){
-            console.log(data)
             $('#soul').text(data['soul'])
         })
     });
