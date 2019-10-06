@@ -26,7 +26,7 @@ class Visitor(models.Model):
 
 
 class Soul(models.Model):
-    title = models.CharField(max_length=300, blank=False, verbose_name="鸡汤")
+    title = models.TextField(max_length=300, blank=False, verbose_name="鸡汤")
     hits = models.CharField(max_length=100, blank=False)
 
     class Meta:
