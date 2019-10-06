@@ -6,11 +6,9 @@ from .models import Visitor
 
 def index(request):
     ip = request.META.get('REMOTE_ADDR')
-    try:
-        visitor = Visitor.objects.get(ip=ip)
-    except Visitor.DoesNotExist:
+    count = Visitor.objects.filter(ip=ip).count()
+    if count == 0:
         visitor = Visitor()
         visitor.ip = ip
-    visitor.save()
-
+        visitor.save()
     return render(request, 'home/index.html', {'ip': ip})
