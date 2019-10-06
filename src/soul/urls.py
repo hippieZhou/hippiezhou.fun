@@ -6,5 +6,5 @@ from . import views
 app_name = 'wechat'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('login/', views.login, name='login'),
+    path('random/', views.random, name='random'),
 ]

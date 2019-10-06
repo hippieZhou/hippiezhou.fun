@@ -15,6 +15,7 @@ class VisitorAdmin(admin.ModelAdmin):
 class SoulAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'hits',)
     search_fields = ('title',)
+    list_per_page = 20
 
 
 @admin.register(LogEntry)

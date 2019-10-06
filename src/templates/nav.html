@@ -20,6 +20,9 @@
                     <li class="nav-item {% ifequal  '/bing' request.path|slice:':5' %} active {% endifequal %}">
                         <a class="nav-link" href="{% url 'bing:index' %}"><i class="far fa-images mr-1"></i>壁纸</a>
                     </li>
+                    <li class="nav-item {% ifequal  '/soul' request.path|slice:':5' %} active {% endifequal %}">
+                        <a class="nav-link" href="{% url 'soul:index' %}"><i class="fas fa-ghost mr-1"></i>鸡汤</a>
+                    </li>
                     <li class="nav-item {% ifequal  '/blog' request.path|slice:':5' %} active {% endifequal %}">
                         <a class="nav-link" href="{% url 'blog:index' %}"><i class="fas fa-quran mr-1"></i>博客</a>
                     </li>

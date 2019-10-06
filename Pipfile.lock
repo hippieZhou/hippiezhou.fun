@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3991cee1c9b6499d690d9d6f0258b385de8c325d1fa3100213cee8a8868496e0"
+            "sha256": "d72e94f224944185e30a655472dd0ef1eb55f2740e87f801b652e402b17d36d7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -144,13 +144,6 @@
                 "sha256:c894d57500a4cd2d5c71114aaab77dbab5eabd9022308ce5ac9bb93a60a6f0c7"
             ],
             "version": "==2019.2"
-        },
-        "pywxclient": {
-            "hashes": [
-                "sha256:e7cc80377e4ecb8da46118cc25ba80e39771ded27d9168fc937c61849ba168f3"
-            ],
-            "index": "pypi",
-            "version": "==0.1.2"
         },
         "requests": {
             "hashes": [

@@ -16,7 +16,6 @@ markdown = "*"
 pillow = "*"
 python-slugify = "*"
 requests = "*"
-pywxclient = "*"
 
 [requires]
 python_version = "3.6"

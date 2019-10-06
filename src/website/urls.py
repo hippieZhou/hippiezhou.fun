@@ -21,12 +21,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', include('home.urls', namespace='home')),
     path('bing/', include('bing.urls', namespace='bing')),
-    path('wechat/', include('wechat.urls', namespace='wechat')),
+    path('soul/', include('soul.urls', namespace='soul')),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('account/', include('account.urls', namespace='account')),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    
-    path('account/', include('account.urls', namespace='account')),
     path('admin/', admin.site.urls),
 ]
 

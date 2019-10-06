@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h2 id="soul" class="font-weight-bold deep-orange-lighter-hover mb-3">{{ soul }}</h2>
+    <div class="text-center">
+        <a id="next" class="btn btn-sm btn-dark">再来一碗</a>
+    </div>
+</div>
+{% endblock  %}
+
+{% block domready %}
+    $('#next').click(function(e){
+        e.preventDefault();
+        console.log("毒鸡汤，原始数据来自于：https://github.com/egotong/nows");
+        $.get('{% url "soul:random" %}',function(data){
+            console.log(data)
+            $('#soul').text(data['soul'])
+        })
+    });
+{% endblock %}
