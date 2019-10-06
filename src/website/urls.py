@@ -25,16 +25,15 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('jet/', include('jet.urls', namespace='jet')),
     
     path('account/', include('account.urls', namespace='account')),
     path('admin/', admin.site.urls),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 handler404 = 'website.error_views.handler404'
 handler500 = 'website.error_views.handler500'
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_title = "Attention Admin"
 admin.site.site_header = "Attention Admin"
