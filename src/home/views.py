@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.conf import settings
 
 from .models import Visitor
 # Create your views here.
@@ -11,5 +12,6 @@ def index(request):
     except Visitor.DoesNotExist:
         visitor = Visitor()
         visitor.ip = ip
-    visitor.save()
+    if not settings.DEBUG:
+        visitor.save()
     return render(request, 'home/index.html', {'ip': ip})
