@@ -23,3 +23,15 @@ class Visitor(models.Model):
 
     def __str__(self):
         return self.ip
+
+
+class Soul(models.Model):
+    title = models.CharField(max_length=300, blank=False, verbose_name="鸡汤")
+    hits = models.CharField(max_length=100, blank=False)
+
+    class Meta:
+        verbose_name = "毒鸡汤"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title
