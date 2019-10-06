@@ -14,9 +14,8 @@ class IndexView(generic.ListView):
     paginate_by = 9
 
     def get_queryset(self):
-        first = Wallpaper.objects.first()
-        timespan = timezone.now() - first.datetime
-        if first is None or timespan.days > 1:
+        has = Wallpaper.objects.filter(datetime__contains=timezone.now().date())
+        if has is None:
             print('sipder is running')
             from .spider import spider
             spider()
