@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
-from common.decorators import ajax_required
+from utils.decorators import ajax_required
 
 from home.models import Soul
 # Create your views here.
