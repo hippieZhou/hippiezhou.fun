@@ -85,10 +85,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'website.wsgi.application'
 
 # 创建自定义验证后端
-# AUTHENTICATION_BACKENDS = [
-#     'django.contrib.auth.backends.ModelBackend',
-#     'website.authentication.EmailAuthBackend',
-# ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -130,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LOGIN_REDIRECT_URL = 'account:dashboard'
 LOGIN_URL = 'account:login'
 LOGOUT_URL = 'account:logout'
-LOGOUT_REDIRECT_URL = 'account:goodbye'
+LOGOUT_REDIRECT_URL = 'account:login'
 
 
 # Internationalization
