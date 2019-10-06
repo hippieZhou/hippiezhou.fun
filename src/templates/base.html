@@ -35,9 +35,7 @@
 
 
 {% block bootstrap4_before_content %}
-<header>
-    {% include "nav.html" %}
-</header>
+{% include "nav.html" %}
 {% endblock %}
 
 {% block bootstrap4_content %}
@@ -52,9 +50,7 @@
 {% endblock %}
 
 {% block bootstrap4_after_content %}
-<footer>
-    {% include "footer.html" %}
-</footer>
+{% include "footer.html" %}
 {% endblock %}
 
 {% block bootstrap4_extra_script %}
@@ -75,7 +71,7 @@
     });
 
     $(document).ready(function () {
-        {% block domready %}{% endblock %}
+        {% block domready %} {% endblock %}
     });
 </script>
 {% endblock %}
