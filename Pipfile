@@ -18,7 +18,7 @@ python-slugify = "*"
 requests = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
 
 [scripts]
 server = "python src/manage.py runserver"
