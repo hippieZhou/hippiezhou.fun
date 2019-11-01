@@ -1,6 +1,7 @@
 from django.db import models
+from django.db.models.aggregates import Count
 from django.utils import timezone
-
+from random import randint
 # Create your models here.
 
 
@@ -23,3 +24,24 @@ class Visitor(models.Model):
 
     def __str__(self):
         return self.ip
+
+
+class SoulManager(models.Manager):
+    def random(self):
+        count = self.aggregate(count=Count('id'))['count']
+        random_index = randint(0, count - 1)
+        return self.all()[random_index]
+
+
+class Soul(models.Model):
+    title = models.TextField(max_length=300, blank=False, verbose_name="鸡汤")
+    hits = models.CharField(max_length=100, blank=False)
+
+    objects = SoulManager()
+
+    class Meta:
+        verbose_name = "毒鸡汤"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title

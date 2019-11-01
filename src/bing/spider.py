@@ -38,23 +38,22 @@ def spider():
         bings = data.get('images', None)
         for item in bings:
             try:
-                title = item.get('title', None)
-
-                old = Wallpaper.objects.filter(title=title).first()
-                if old is not None:
+                fullstartdate = datetime.strptime(
+                    item.get('fullstartdate', timezone.now()), '%Y%m%d%H%M%S')
+                dt = timezone.make_aware(fullstartdate, pytz.timezone('UTC'))
+                count = Wallpaper.objects.filter(datetime=dt).count()
+                if count > 0:
                     continue
+                print("{0}-->{1}".format(dt, count))
 
                 hsh = item.get('hsh', None)
-
+                title = item.get('title', None)
                 caption = item.get('caption', None)
                 desc = item.get('desc', None)
 
                 copyright = item.get('copyright', None)
                 copyrightonly = item.get('copyrightonly', None)
                 copyrightlink = item.get('copyrightlink', None)
-
-                dt = datetime.strptime(
-                    item.get('fullstartdate', timezone.now()), '%Y%m%d%H%M%S')
 
                 quiz = item.get('quiz', None)
                 url = item.get('url', None)
@@ -68,8 +67,7 @@ def spider():
                 wallpaper.copyright = copyright
                 wallpaper.copyrightonly = copyrightonly
                 wallpaper.copyrightlink = copyrightlink
-                wallpaper.datetime = timezone.make_aware(
-                    dt, pytz.timezone('UTC'))
+                wallpaper.datetime = dt
                 wallpaper.quiz = quiz
                 wallpaper.url = url
                 wallpaper.urlbase = urlbase

@@ -4,10 +4,10 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 verify_ssl = true
 
 [dev-packages]
+autopep8 = "*"
 
 [packages]
 django = "*"
-autopep8 = "*"
 django-bootstrap4 = "*"
 django-ckeditor = "*"
 django-taggit = "*"
@@ -19,3 +19,7 @@ requests = "*"
 
 [requires]
 python_version = "3.6"
+
+[scripts]
+server = "python src/manage.py runserver"
+list = "pip list"

@@ -33,13 +33,6 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-
     'bootstrap4',
     'ckeditor',
     'ckeditor_uploader',
@@ -47,7 +40,16 @@ INSTALLED_APPS = [
 
     'home.apps.HomeConfig',
     'bing.apps.BingConfig',
+    'soul.apps.SoulConfig',
     'blog.apps.BlogConfig',
+    'account.apps.AccountConfig',
+
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -83,10 +85,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'website.wsgi.application'
 
 # 创建自定义验证后端
-# AUTHENTICATION_BACKENDS = [
-#     'django.contrib.auth.backends.ModelBackend',
-#     'website.authentication.EmailAuthBackend',
-# ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -96,16 +98,16 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'hippiezhou_fun',
-    #     'USER': 'root',
-    #     'PASSWORD': 'root',
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '3306',
-    # }
 }
 
+# Cache
+# https://docs.djangoproject.com/zh-hans/2.2/topics/cache/
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -125,23 +127,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = 'account:dashboard'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'
+LOGOUT_REDIRECT_URL = 'account:login'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-# LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'zh-hans'
-
-
-# TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -171,57 +171,34 @@ CKEDITOR_ALLOW_NONIMAGE_FILES = True
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'root': {
-        'level': 'INFO',
-        'handlers': ['console', 'log_file'],
-    },
     'formatters': {
-        'verbose': {
-            'format': '[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d %(module)s] %(message)s',
-        }
-    },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
-        },
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
+        'default': {
+            'format': '%(levelname)s %(asctime)s %(module)s:'
+                      '%(funcName)s:%(lineno)d %(message)s'
         },
     },
     'handlers': {
-        'log_file': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'default',
+        },
+        'file': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': 'djangoblog.log',
-            'maxBytes': 16777216,  # 16 MB
-            'formatter': 'verbose'
+            'filename': 'website.log',
+            'formatter': 'default',
+            'maxBytes': 1024 * 1024,  # 1M
+            'backupCount': 5,
         },
-        'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
-        },
-        'null': {
-            'class': 'logging.NullHandler',
-        },
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
+
     },
     'loggers': {
-        'djangoblog': {
-            'handlers': ['log_file', 'console'],
+        '': {
+            'handlers': ['console'],
             'level': 'INFO',
             'propagate': True,
         },
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': False,
-        }
     }
 }
 
